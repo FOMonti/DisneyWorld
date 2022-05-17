@@ -1,4 +1,4 @@
-package com.alkemy.disneyworld.disneyworld;
+package com.alkemy.disneyworld;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
