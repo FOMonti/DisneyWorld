@@ -4,6 +4,9 @@ import com.alkemy.disneyworld.dto.GeneroDTO;
 import com.alkemy.disneyworld.entity.GeneroEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class GeneroMapper {
 
@@ -20,5 +23,12 @@ public class GeneroMapper {
         generoDTO.setImagen(generoEntity.getImagen());
         generoDTO.setNombre(generoEntity.getNombre());
         return generoDTO;
+    }
+
+    public List<GeneroDTO> generosEntityList2DTOList(List<GeneroEntity> generosEntitys) {
+        List<GeneroDTO> generosDTOS = new ArrayList<>();
+        for (GeneroEntity generoEntity : generosEntitys)
+            generosDTOS.add(generoEntity2DTO(generoEntity));
+        return generosDTOS;
     }
 }
