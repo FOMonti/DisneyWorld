@@ -32,17 +32,29 @@ public class PeliculaServiceImpl implements PeliculaService {
     @Autowired
     private GeneroMapper generoMapper;
 
-    public PeliculaDTO save(PeliculaDTO peliculaDTO, Long generoId) {
+    public PeliculaDTO save(PeliculaDTO peliculaDTO) {
         PeliculaEntity peliculaEntity = peliculaMapper.peliculaDTO2Entity(peliculaDTO);
         peliculaEntity.setFechaDeCreacion(LocalDate.now());
-        GeneroDTO generoDTO = generoService.findById(generoId);
+        GeneroDTO generoDTO = generoService.findById(peliculaDTO.getIdGenero());
         GeneroEntity generoEntity = generoMapper.generoDTO2Entity(generoDTO);
         peliculaEntity.setGenero(generoEntity);
         return peliculaMapper.peliculaEntity2DTO(peliculaEntity, true);
     }
 
     public List<PeliculaDTO> getAllWithListId(List<Long> peliculasID) {
-        return peliculaMapper.peliculaEntityList2DTOList(peliculaEntities(peliculasID), true);
+        return peliculaMapper.peliculaEntityList2DTOList(peliculaEntities(peliculasID), false);
+    }
+
+    public PeliculaDTO update(PeliculaDTO peliculaDTO) {
+        return null;
+    }
+
+    public void delete(Long id) {
+
+    }
+
+    public List<PeliculaDTO> getAll() {
+        return null;
     }
 
     private List<PeliculaEntity> peliculaEntities(List<Long> peliculasID) {

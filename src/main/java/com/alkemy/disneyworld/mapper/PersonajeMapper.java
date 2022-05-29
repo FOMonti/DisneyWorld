@@ -12,7 +12,7 @@ import java.util.*;
 public class PersonajeMapper {
 
     @Autowired
-    private PeliculaMapper peliculaMapper;
+    private static PeliculaMapper peliculaMapper;
 
     public PersonajeEntity personajeDTO2PersonajeEntity(PersonajeDTO personajeDTO) {
         PersonajeEntity personajeEntity = new PersonajeEntity();

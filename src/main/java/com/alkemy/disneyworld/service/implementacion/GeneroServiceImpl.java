@@ -22,7 +22,13 @@ public class GeneroServiceImpl implements GeneroService {
 
     public GeneroDTO save(GeneroDTO generoDTO) {
         GeneroEntity generoEntity = generoMapper.generoDTO2Entity(generoDTO);
-        GeneroEntity generoEntitySaved = generoRepository.save(generoEntity);
+        generoRepository.save(generoEntity);
+        return generoMapper.generoEntity2DTO(generoEntity);
+    }
+
+    public GeneroDTO update(GeneroDTO generoDTO) {
+        GeneroEntity generoEntity = generoMapper.generoDTO2Entity(generoDTO);
+        generoRepository.save(generoEntity);
         return generoMapper.generoEntity2DTO(generoEntity);
     }
 

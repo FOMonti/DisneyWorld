@@ -10,26 +10,42 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("generos")
+@RequestMapping("/generos")
 public class GeneroController {
 
     @Autowired
     private GeneroService generoService;
 
-    @GetMapping("/list")
-    public ResponseEntity<List<GeneroDTO>> getAll() {
-        List<GeneroDTO> generos = generoService.getAllGeneros();
-        return ResponseEntity.ok(generos);
-    }
-
+    //TODO : Modificar Service (Agregar Exception) || List<Peliculas>
     @PostMapping("/save")
     public ResponseEntity<GeneroDTO> save(@RequestBody GeneroDTO genero) {
         GeneroDTO generoGuardado = generoService.save(genero);
         return ResponseEntity.status(HttpStatus.CREATED).body(generoGuardado);
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> removeGenero(@PathVariable Long id) {
+    //TODO : IMPLEMENTAR
+    @PostMapping("/update")
+    public ResponseEntity<GeneroDTO> update(@RequestBody GeneroDTO genero) {
+        GeneroDTO generoGuardado = generoService.update(genero);
+        return ResponseEntity.status(HttpStatus.CREATED).body(generoGuardado);
+    }
+
+    //TODO : IMPLEMENTAR
+    @PostMapping("/add_peliculas")
+    public ResponseEntity<GeneroDTO> addPeliculas(@RequestBody GeneroDTO genero) {
+        GeneroDTO generoGuardado = generoService.update(genero);
+        return ResponseEntity.status(HttpStatus.CREATED).body(generoGuardado);
+    }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<List<GeneroDTO>> getAll() {
+        List<GeneroDTO> generos = generoService.getAllGeneros();
+        return ResponseEntity.ok(generos);
+    }
+
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> remove(@PathVariable Long id) {
         generoService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

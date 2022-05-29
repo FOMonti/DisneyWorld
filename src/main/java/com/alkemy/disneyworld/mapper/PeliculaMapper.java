@@ -12,7 +12,7 @@ import java.util.List;
 public class PeliculaMapper {
 
     @Autowired
-    private PersonajeMapper personajeMapper;
+    private static PersonajeMapper personajeMapper;
 
     public PeliculaDTO peliculaEntity2DTO(PeliculaEntity peliculaEntity, boolean cargarPersonajes) {
         PeliculaDTO peliculaDTO = new PeliculaDTO();
@@ -20,10 +20,8 @@ public class PeliculaMapper {
         peliculaDTO.setImagen(peliculaEntity.getImagen());
         peliculaDTO.setCalificacion(peliculaEntity.getCalificacion());
         peliculaDTO.setFechaDeCreacion(peliculaEntity.getFechaDeCreacion());
-        if (cargarPersonajes) {
-            peliculaDTO.setPersonajesDTO(personajeMapper.personajeEntityList2DTOList(peliculaEntity.getPersonajes()) );
-        }
-//            List<PersonajeDTO> personajeDTOS = personajeMapper.personaje
+        if (cargarPersonajes)
+            peliculaDTO.setPersonajesDTO(personajeMapper.personajeEntityList2DTOList(peliculaEntity.getPersonajes()));
         return peliculaDTO;
     }
 

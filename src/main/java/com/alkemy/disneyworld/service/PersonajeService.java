@@ -6,5 +6,9 @@ import java.util.List;
 
 public interface PersonajeService {
 
-    PersonajeDTO save(PersonajeDTO personajeDTO, List<Long> peliculas);
+    PersonajeDTO save(PersonajeDTO personajeDTO);
+
+    void delete(Long id);
+
+    PersonajeDTO update(PersonajeDTO pelicula);
 }

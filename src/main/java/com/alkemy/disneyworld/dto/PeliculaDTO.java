@@ -11,11 +11,15 @@ import java.util.Set;
 @Setter
 public class PeliculaDTO {
 
+    private Long id;
+
     private String imagen;
 
     private String titulo;
 
     private Integer calificacion;
+
+    private Long idGenero;
 
     private LocalDate fechaDeCreacion;
 
