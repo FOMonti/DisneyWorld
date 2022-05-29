@@ -1,7 +1,7 @@
 package com.alkemy.disneyworld.service.implementacion;
 
-import com.alkemy.disneyworld.dto.GeneroDTO;
-import com.alkemy.disneyworld.dto.PeliculaDTO;
+import com.alkemy.disneyworld.dto.genero.GeneroDTO;
+import com.alkemy.disneyworld.dto.pelicula.PeliculaDTO;
 import com.alkemy.disneyworld.entity.GeneroEntity;
 import com.alkemy.disneyworld.entity.PeliculaEntity;
 import com.alkemy.disneyworld.mapper.GeneroMapper;
@@ -35,7 +35,7 @@ public class PeliculaServiceImpl implements PeliculaService {
     public PeliculaDTO save(PeliculaDTO peliculaDTO) {
         PeliculaEntity peliculaEntity = peliculaMapper.peliculaDTO2Entity(peliculaDTO);
         peliculaEntity.setFechaDeCreacion(LocalDate.now());
-        GeneroDTO generoDTO = generoService.findById(peliculaDTO.getIdGenero());
+        GeneroDTO generoDTO = generoService.findByNombre(peliculaDTO.getIdGenero());
         GeneroEntity generoEntity = generoMapper.generoDTO2Entity(generoDTO);
         peliculaEntity.setGenero(generoEntity);
         return peliculaMapper.peliculaEntity2DTO(peliculaEntity, true);

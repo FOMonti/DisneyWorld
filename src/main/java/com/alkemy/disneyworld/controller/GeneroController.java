@@ -1,6 +1,8 @@
 package com.alkemy.disneyworld.controller;
 
-import com.alkemy.disneyworld.dto.GeneroDTO;
+import com.alkemy.disneyworld.dto.genero.GeneroAddDto;
+import com.alkemy.disneyworld.dto.genero.GeneroDTO;
+import com.alkemy.disneyworld.dto.genero.GeneroUpdateDto;
 import com.alkemy.disneyworld.service.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,25 +18,24 @@ public class GeneroController {
     @Autowired
     private GeneroService generoService;
 
-    //TODO : Modificar Service (Agregar Exception) || List<Peliculas>
     @PostMapping("/save")
-    public ResponseEntity<GeneroDTO> save(@RequestBody GeneroDTO genero) {
+    public ResponseEntity<GeneroDTO> save(@RequestBody GeneroAddDto genero) {
         GeneroDTO generoGuardado = generoService.save(genero);
         return ResponseEntity.status(HttpStatus.CREATED).body(generoGuardado);
     }
 
-    //TODO : IMPLEMENTAR
+    //TODO : Testear(testear con peliculas, no debe borrar las relaciones)
     @PostMapping("/update")
-    public ResponseEntity<GeneroDTO> update(@RequestBody GeneroDTO genero) {
+    public ResponseEntity<GeneroDTO> update(@RequestBody GeneroUpdateDto genero) {
         GeneroDTO generoGuardado = generoService.update(genero);
         return ResponseEntity.status(HttpStatus.CREATED).body(generoGuardado);
     }
 
-    //TODO : IMPLEMENTAR
-    @PostMapping("/add_peliculas")
-    public ResponseEntity<GeneroDTO> addPeliculas(@RequestBody GeneroDTO genero) {
-        GeneroDTO generoGuardado = generoService.update(genero);
-        return ResponseEntity.status(HttpStatus.CREATED).body(generoGuardado);
+    //TODO : Testear luego de crud Movie
+    @PostMapping("/{nombreGenero}/movies/{idMovie}")
+    public ResponseEntity<GeneroDTO> addPeliculas(@RequestParam String nombreGenero, @RequestParam Long idMovie) {
+        GeneroDTO generoGuardado = generoService.addMovie2Gender(nombreGenero, idMovie);
+        return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
     @GetMapping("/getAll")
@@ -45,7 +46,7 @@ public class GeneroController {
 
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> remove(@PathVariable Long id) {
+    public ResponseEntity<Void> remove(@PathVariable String id) {
         generoService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

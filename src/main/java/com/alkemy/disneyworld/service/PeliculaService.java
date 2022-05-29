@@ -1,7 +1,6 @@
 package com.alkemy.disneyworld.service;
 
-import com.alkemy.disneyworld.dto.PeliculaDTO;
-import com.alkemy.disneyworld.entity.PeliculaEntity;
+import com.alkemy.disneyworld.dto.pelicula.PeliculaDTO;
 
 import java.util.List;
 

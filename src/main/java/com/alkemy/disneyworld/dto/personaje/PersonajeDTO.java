@@ -1,5 +1,6 @@
-package com.alkemy.disneyworld.dto;
+package com.alkemy.disneyworld.dto.personaje;
 
+import com.alkemy.disneyworld.dto.pelicula.PeliculaDTO;
 import lombok.Getter;
 import lombok.Setter;
 

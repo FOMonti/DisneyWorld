@@ -1,8 +1,6 @@
 package com.alkemy.disneyworld.service.implementacion;
 
-import com.alkemy.disneyworld.dto.PeliculaDTO;
-import com.alkemy.disneyworld.dto.PersonajeDTO;
-import com.alkemy.disneyworld.entity.PeliculaEntity;
+import com.alkemy.disneyworld.dto.personaje.PersonajeDTO;
 import com.alkemy.disneyworld.entity.PersonajeEntity;
 import com.alkemy.disneyworld.mapper.PersonajeMapper;
 import com.alkemy.disneyworld.repository.PersonajeRepository;
@@ -10,8 +8,6 @@ import com.alkemy.disneyworld.service.PeliculaService;
 import com.alkemy.disneyworld.service.PersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class PersonajeServiceImpl implements PersonajeService {

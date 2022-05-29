@@ -1,8 +1,6 @@
 package com.alkemy.disneyworld.service;
 
-import com.alkemy.disneyworld.dto.PersonajeDTO;
-
-import java.util.List;
+import com.alkemy.disneyworld.dto.personaje.PersonajeDTO;
 
 public interface PersonajeService {
 

@@ -1,6 +1,6 @@
 package com.alkemy.disneyworld.controller;
 
-import com.alkemy.disneyworld.dto.PersonajeDTO;
+import com.alkemy.disneyworld.dto.personaje.PersonajeDTO;
 import com.alkemy.disneyworld.service.PersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

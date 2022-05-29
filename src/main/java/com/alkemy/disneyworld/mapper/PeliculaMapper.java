@@ -1,6 +1,6 @@
 package com.alkemy.disneyworld.mapper;
 
-import com.alkemy.disneyworld.dto.PeliculaDTO;
+import com.alkemy.disneyworld.dto.pelicula.PeliculaDTO;
 import com.alkemy.disneyworld.entity.PeliculaEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,10 +1,10 @@
-package com.alkemy.disneyworld.dto;
+package com.alkemy.disneyworld.dto.pelicula;
 
+import com.alkemy.disneyworld.dto.personaje.PersonajeDTO;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -19,7 +19,7 @@ public class PeliculaDTO {
 
     private Integer calificacion;
 
-    private Long idGenero;
+    private String idGenero;
 
     private LocalDate fechaDeCreacion;
 
